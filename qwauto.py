@@ -53,16 +53,22 @@ def switch_to_boughtx(window: WindowSpecification, account: str):
         window: Main Quicken window.
         account: Source of funds for purchase.
     """
+    PAUSE_TIME = .1
     window.type_keys("{TAB}")
     window.type_keys("boughtx")
 
     # Tab to transfer field.
+    import time
     for i in range(7):
+        time.sleep(PAUSE_TIME)
         window.type_keys("{TAB}")
 
+    time.sleep(PAUSE_TIME)
     window.type_keys(account)
+    time.sleep(PAUSE_TIME)
     # Accept account.
     window.type_keys("{ENTER}")
+    time.sleep(PAUSE_TIME)
     # Save transaction.
     window.type_keys("{ENTER}")
 
